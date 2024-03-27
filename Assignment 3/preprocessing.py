@@ -28,7 +28,4 @@ def fill_missing_values(df):
 
 df = fill_missing_values(df)
 
-# output_file_path = "cleaned_dataset.csv"
-# df.to_csv(output_file_path, index=False)
-
 sys.stdout.write(df.to_csv(index=False))
