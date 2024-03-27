@@ -1,0 +1,5 @@
+docker build -t sonjagalovic/assignment3 .
+docker tag sonjagalovic/assignment3 sonjagalovic/racunarstvo-u-oblaku:assignment3
+docker push sonjagalovic/racunarstvo-u-oblaku:assignment3
+
+cwl-runner workflow.cwl job.yaml
