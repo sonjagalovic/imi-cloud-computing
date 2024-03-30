@@ -1,9 +1,3 @@
-app_preprocess:
-  class: File
-  path: preprocessing.py
-app_train:
-  class: File
-  path: train_and_evaluate.py
 dataset_file:
   class: File
   path: HousingData.csv

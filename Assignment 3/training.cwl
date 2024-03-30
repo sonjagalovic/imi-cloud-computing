@@ -1,27 +1,23 @@
+cwlVersion: v1.2
 class: CommandLineTool
-cwlVersion: v1.0
-baseCommand: ["python"]
+baseCommand: ["python", "/app/training.py"]
 
 hints:
   DockerRequirement:
     dockerPull: sonjagalovic/racunarstvo-u-oblaku:assignment3
 inputs:
-  app_train:
-    type: File
-    inputBinding:
-      position: 1
   cleaned_dataset:
     type: File
     inputBinding:
-      position: 2
+      position: 1
   target_column:
     type: string
     inputBinding:
-      position: 3
+      position: 2
   training_percentage:
     type: float
     inputBinding:
-      position: 4
+      position: 3
 
 outputs:
   performance_metrics:

@@ -1,5 +1,7 @@
 FROM python:3.11-slim
 
-RUN pip install pandas numpy scikit-learn 
+WORKDIR /app
 
-CMD ["/bin/bash"]
+RUN pip install --no-cache-dir pandas numpy scikit-learn 
+
+COPY . .

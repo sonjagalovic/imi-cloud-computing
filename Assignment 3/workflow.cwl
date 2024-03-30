@@ -1,9 +1,7 @@
 class: Workflow
-cwlVersion: v1.0
+cwlVersion: v1.2
 
 inputs:
-  app_preprocess: File
-  app_train: File
   dataset_file: File
   target_column:
     type: string
@@ -13,20 +11,18 @@ inputs:
 outputs:
   performance_metrics:
     type: File
-    outputSource: train_and_evaluate/performance_metrics
+    outputSource: training/performance_metrics
 
 steps:
   preprocess:
     run: preprocessing.cwl
     in:
-      app_preprocess: app_preprocess
       dataset_file: dataset_file
     out: [cleaned_dataset]
 
-  train_and_evaluate:
-    run: train_and_evaluate.cwl
+  training:
+    run: training.cwl
     in:
-      app_train: app_train
       cleaned_dataset: preprocess/cleaned_dataset
       target_column: target_column
       training_percentage: training_percentage

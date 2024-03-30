@@ -1,20 +1,16 @@
-cwlVersion: v1.0
+cwlVersion: v1.2
 class: CommandLineTool
-baseCommand: ["python"]
+baseCommand: ["python", "/app/preprocessing.py"]
 
 hints:
   DockerRequirement:
     dockerPull: sonjagalovic/racunarstvo-u-oblaku:assignment3
 
 inputs:
-  app_preprocess:
-    type: File
-    inputBinding:
-      position: 1
   dataset_file:
     type: File
     inputBinding:
-      position: 2
+      position: 1
 
 outputs:
   cleaned_dataset:
