@@ -1,0 +1,5 @@
+docker build -t sonjagalovic/assignment4 .
+docker tag sonjagalovic/assignment4 sonjagalovic/racunarstvo-u-oblaku:assignment4
+docker push sonjagalovic/racunarstvo-u-oblaku:assignment4
+
+cwl-runner scatter-workflow.cwl job.yaml
