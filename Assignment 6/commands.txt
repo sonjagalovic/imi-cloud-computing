@@ -1,7 +1,7 @@
 SONJA:
-docker build -t sonjagalovic/assignment6 .
-docker tag sonjagalovic/assignment6 sonjagalovic/racunarstvo-u-oblaku:assignment6
-docker push sonjagalovic/racunarstvo-u-oblaku:assignment6
+docker build -t sonjagalovic/assignment-wine .
+docker tag sonjagalovic/assignment-wine sonjagalovic/racunarstvo-u-oblaku:assignment-wine
+docker push sonjagalovic/racunarstvo-u-oblaku:assignment-wine
 
 pwd (ispisuje /home/sonjag)
 mkdir assignment-wine
