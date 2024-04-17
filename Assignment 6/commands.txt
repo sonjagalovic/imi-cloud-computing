@@ -4,19 +4,17 @@ docker tag sonjagalovic/assignment6 sonjagalovic/racunarstvo-u-oblaku:assignment
 docker push sonjagalovic/racunarstvo-u-oblaku:assignment6
 
 pwd (ispisuje /home/sonjag)
-mkdir persistent
-cd persistent
+mkdir assignment-wine
+cd assignment-wine
 mkdir data
-mkdir model
 vim deployment.yaml (pa onda sacuvas fajl)
-vim pv.yaml (pa onda sacuvas fajl)
-vim pvc.yaml (pa onda sacuvas fajl)
+vim persistent-volume.yaml (pa onda sacuvas fajl)
+vim persistent-volume-claim.yaml (pa onda sacuvas fajl)
 cd data
 vim wine-quality-white-and-red.csv (i sacuvaj)
 
-udji u dir persistent
-k apply -f pv.yaml
-k apply -f pvc.yaml
+k apply -f persistent-volume.yaml
+k apply -f persistent-volume-claim.yaml
 
 k apply -f deployment.yaml
 k apply -f service.yaml
@@ -25,30 +23,4 @@ k get all (trebalo bi da je sve running)
 k get logs pod/nazivpoda
 
 http://k8s-master.unic.kg.ac.rs:32350/   #primer linka
-
-
-
-
-
-
-
-
-k get pv
-k delete persistentvolumeclaim task-pv-claim
-k delete persistentvolume task-pv-volume
-k get svc
-
-scp [host_path] [user@host:/remote-path]
-
-- create folders (/persistent/data and /persistent/model)
-- create PV (pv-volume.yaml)
-- create PVC (pv-claim.yaml)
-- apply PV & PVC 
-k apply -f [file]
-- create deployment (deployment.yaml)
-- create service (service.yaml)
-- apply deployment & service
-
-outside access -> http://{node-ip}:{node-port}
-
 
