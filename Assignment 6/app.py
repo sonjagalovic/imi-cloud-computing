@@ -46,7 +46,7 @@ def train():
         metrics[c] = {
             "precision": str(precision[i]),
             "recall": str(recall[i]),
-            "f1-score": str(f1_score[i])
+            "f1 score": str(f1_score[i])
         }
     return jsonify(metrics)
 

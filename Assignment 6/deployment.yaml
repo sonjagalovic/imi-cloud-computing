@@ -13,21 +13,21 @@ spec:
         app: app
     spec:
       volumes:
-        - name: data-pv-storage
+        - name: pv-data-storage
           persistentVolumeClaim:
-            claimName: data-pvc
+            claimName: pvc-data
       containers:
       - name: app
-        image: sonjagalovic/racunarstvo-u-oblaku:assignment6
+        image: sonjagalovic/racunarstvo-u-oblaku:assignment-wine
         imagePullPolicy: Always
         command: ["python", "/app/app.py"]
         ports:
         - containerPort: 5000
         env:
         - name: data_path
-          value: "/home/sonjag/assignment6/persistent/data/wine-quality-white-and-red.csv"
+          value: "/home/sonjag/assignment-wine/data/wine-quality-white-and-red.csv"
         - name: model_path
-          value: "/home/sonjag/assignment6/persistent/model/wine-model.pkl"
+          value: "/home/sonjag/assignment-wine/data/wine-model.pkl"
         volumeMounts:
-          - mountPath: "/home/sonjag/assignment6/persistent"
-            name: data-pv-storage
+          - mountPath: "/home/sonjag/assignment-wine"
+            name: pv-data-storage
