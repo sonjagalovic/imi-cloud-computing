@@ -18,7 +18,6 @@ model = MLPClassifier(hidden_layer_sizes=(50, 100, 150, 200), max_iter=300, acti
 
 @app.route("/train", methods=["POST"])
 def train():
-    data_path = request.json.get('data_path')
     output_column = request.json.get('output_column')
     test_size = request.json.get('test_size', 0.25)
 

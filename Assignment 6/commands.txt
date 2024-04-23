@@ -24,3 +24,5 @@ k get logs pod/nazivpoda
 
 http://k8s-master.unic.kg.ac.rs:32350/   #primer linka
 
+k rollout restart deployment/app
+
