@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job
+spec:
+  parallelism: 10
+  completions: 10
+  template:
+    spec:
+      containers:
+      - name: scatter-workflow-container
+        image: sonjagalovic/racunarstvo-u-oblaku:assignment5
+        imagePullPolicy: Always
+        command: ["python", "/app/train_fold.py"]
+        env:
+        - name: DATASET_FILE
+          valueFrom:
+            configMapKeyRef:
+              name: configmap
+              key: dataset_file
+        - name: TARGET_COLUMN
+          valueFrom:
+            configMapKeyRef:
+              name: configmap
+              key: target_column
+        - name: K
+          valueFrom:
+            configMapKeyRef:
+              name: configmap
+              key: k
+        - name: CURRENT_FOLD
+          valueFrom:
+            configMapKeyRef:
+              name: configmap
+              key: current_fold
+      restartPolicy: Never
+  backoffLimit: 4

@@ -1,0 +1,20 @@
+SONJA:
+docker build --no-cache -t sonjagalovic/assignment5 .
+docker tag sonjagalovic/assignment5 sonjagalovic/racunarstvo-u-oblaku:assignment5
+docker push sonjagalovic/racunarstvo-u-oblaku:assignment5
+
+pwd (ispisuje /home/sonjag)
+mkdir assignment5
+cd assignment5
+vim job.yaml (pa onda sacuvas fajl)
+vim configmap.yaml (i sacuvaj)
+
+k apply -f configmap.yaml
+k apply -f job.yaml
+
+k get all (trebalo bi da je sve running)
+k get logs pod/nazivpoda
+
+http://k8s-master.unic.kg.ac.rs:32350/   #primer linka
+
+  backoffLimit: 4
