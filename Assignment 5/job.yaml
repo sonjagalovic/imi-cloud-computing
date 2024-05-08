@@ -28,5 +28,11 @@ spec:
             configMapKeyRef:
               name: configmap
               key: k
+        volumeMounts:
+        - name: results-volume
+          mountPath: /results
       restartPolicy: Never
+      volumes:
+      - name: results-volume
+        emptyDir: {}
   backoffLimit: 4

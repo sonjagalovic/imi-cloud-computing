@@ -5,6 +5,10 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 import numpy as np
 
+# Uklonite warningove
+import warnings
+warnings.filterwarnings("ignore")
+
 dataset_file = os.environ.get('DATASET_FILE')
 target_column = os.environ.get('TARGET_COLUMN')
 k = int(os.environ.get('K'))
@@ -27,6 +31,11 @@ model = LinearRegression()
 model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test)
-rmse = mean_squared_error(y_test, y_pred, squared=False)
+
+# Izračunajte RMSE
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 
 print(rmse)
+
+# with open('/app/rmse.txt', 'w') as f:
+#     f.write(str(rmse))

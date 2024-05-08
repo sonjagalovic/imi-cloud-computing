@@ -15,6 +15,10 @@ k apply -f job.yaml
 k get all (trebalo bi da je sve running)
 k get logs pod/nazivpoda
 
+vim calculate.sh
+chmod +x calculate.sh
+./calculate.sh
+
 http://k8s-master.unic.kg.ac.rs:32350/   #primer linka
 
-  backoffLimit: 4
+k delete job.batch/job
