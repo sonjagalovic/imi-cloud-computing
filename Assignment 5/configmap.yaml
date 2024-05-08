@@ -6,4 +6,3 @@ data:
   dataset_file: "/app/HousingData.csv"
   target_column: "MEDV"
   k: "10"
-  current_fold: "0"

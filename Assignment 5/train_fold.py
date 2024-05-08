@@ -1,4 +1,5 @@
 import os
+import random
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
@@ -7,7 +8,7 @@ import numpy as np
 dataset_file = os.environ.get('DATASET_FILE')
 target_column = os.environ.get('TARGET_COLUMN')
 k = int(os.environ.get('K'))
-current_fold = int(os.environ.get('CURRENT_FOLD'))
+current_fold = random.randint(0, k - 1)
 
 df = pd.read_csv(dataset_file)
 df = df.fillna(df.mean())
